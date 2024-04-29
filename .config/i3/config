@@ -6,7 +6,7 @@ exec --no-startup-id feh --bg-fill /home/stephen/.config/i3/wallpapers/Rivendell
 # Start picom 
 exec --no-startup-id picom -b
 exec --no-startup-id autotiling
-exec --no-startup-id redshift
+#exec --no-startup-id redshift
 
 # Set the mod key to alt and the second mod key to meta
 set $mod Mod1

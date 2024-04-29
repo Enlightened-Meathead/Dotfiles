@@ -16,7 +16,32 @@ M.general = {
   },
 
   n = {
+    -- Custom Mappings
+    -- Go to my obsidian wiki index from anywhere
+    ["<leader>ww"] = { ':edit /home/stephen/StephensVault/StephensVaultIndex.md<CR>', "Open the obsidian wiki index"},
+    -- Search for wiki links contained in double square brackets
+    ["<leader>ws"] = { ':/\\[\\[[^\\]]*\\]\\]<CR>', "Search for wiki links within the current file"},
+    -- Go to the previous buffer with backspace, useful for zooming through wiki links
+    ["<leader><BS>"] = { ':bp<CR>','Go to previous buffer/wiki link'},
+    -- Search using obsidian tags
+    ['<leader>wt'] = { ':ObsidianTags<CR>', "Search for all other occurences of a tag within the current note"},
+    -- Past an image into a note
+    ["<leader>wi"] = { ":ObsidianPasteImg<CR>", "Paste an image from the clipboard into the note"},
+    -- Open a daily note
+    ["<leader>wd"] = { ":ObsidianToday<CR>", "Open a new daily note"},
+    -- Insert a template to format the file
+    ["<leader>wf"] = { ":ObsidianTemplate<CR>", "Insert a template for the note"},
+    -- Insert the journal template
+    ["<leader>wj"] = { "ggd<S-g>:ObsidianTemplate JournalNote<CR>", "Format the note as a journal entry"},
+    -- Insert the braindump template
+    ["<leader>wb"] = { "ggd<S-g>:ObsidianTemplate BrainDump<CR>", "Format the note as a brain dump"},
+    -- Insert the note template?
+    -- Rename the curent note in obsidian with full backlink relinking
+    ["<leader>wr"] = { ":w<CR>:ObsidianRename<CR>", "Rename the file with full backlink refactoring"},
+    -- When creating a new linked note, after entering the note, save it, clear the note, then rename it 
+    ["<leader>wn"] = { ":w<CR>ggdG:ObsidianTemplate<CR>", "Clear out a new note and insert a template"},
     ["<Esc>"] = { "<cmd> noh <CR>", "Clear highlights" },
+    --
     -- switch between windows
     ["<C-h>"] = { "<C-w>h", "Window left" },
     ["<C-l>"] = { "<C-w>l", "Window right" },
@@ -59,6 +84,10 @@ M.general = {
   },
 
   v = {
+    -- Custom Mappings
+    -- From a visual selection, create a new link
+    ["<leader>wl"] = { "::ObsidianLinkNew", "Make an new note from a visually selected text to link from"},
+    --
     ["<Up>"] = { 'v:count || mode(1)[0:1] == "no" ? "k" : "gk"', "Move up", opts = { expr = true } },
     ["<Down>"] = { 'v:count || mode(1)[0:1] == "no" ? "j" : "gj"', "Move down", opts = { expr = true } },
     ["<"] = { "<gv", "Indent line" },

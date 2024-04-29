@@ -37,8 +37,8 @@ local plugins = {
     -- My templates folder to open the picker for
     templates = {
       subdir = "Templates",
-      date_format = "%a,%m-%d-%Y",
-      time_format = "%H:%M",
+      date_format = "%a, %m-%d, %Y",
+      time_format = "%I:%M %p",
     },
 
     -- see below for full list of options 👇
