@@ -19,6 +19,8 @@ M.general = {
     -- Custom Mappings
     -- Go to my obsidian wiki index from anywhere
     ["<leader>ww"] = { ':edit /home/stephen/StephensVault/StephensVaultIndex.md<CR>', "Open the obsidian wiki index"},
+    -- Open the current file in the Obsidian app
+    ["<leader>wo"] = { ":ObsidianOpen<CR>", "Open the current file in the Obsidian app"},
     -- Search for wiki links contained in double square brackets
     ["<leader>ws"] = { ':/\\[\\[[^\\]]*\\]\\]<CR>', "Search for wiki links within the current file"},
     -- Go to the previous buffer with backspace, useful for zooming through wiki links
@@ -40,6 +42,8 @@ M.general = {
     ["<leader>wr"] = { ":w<CR>:ObsidianRename<CR>", "Rename the file with full backlink refactoring"},
     -- When creating a new linked note, after entering the note, save it, clear the note, then rename it 
     ["<leader>wn"] = { ":w<CR>ggdG:ObsidianTemplate<CR>", "Clear out a new note and insert a template"},
+    -- Create a new note using touch so you have directory autocompletion
+    ["<leader>wc"] = { ":!touch ", "Create a new note using touch"},
     ["<Esc>"] = { "<cmd> noh <CR>", "Clear highlights" },
     --
     -- switch between windows
