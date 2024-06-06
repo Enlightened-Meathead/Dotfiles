@@ -112,6 +112,7 @@ alias kwinswitch="systemctl --user disable plasma-i3-custom-wm.service && system
 alias i3switch="systemctl --user enable plasma-i3-custom-wm.service && systemctl --user mask plasma-kwin_x11.service"
 alias backupcfg="/usr/bin/git --git-dir=$HOME/.dotfiles --work-tree=$HOME"
 alias notes="cd StephensVault/; v StephensVaultIndex.md"
+alias ksesh="kitty-sesh"
 # Example aliases
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
