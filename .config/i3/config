@@ -1,0 +1,105 @@
+# i3 config file
+
+# Start feh and set the wallpaper
+#exec --no-startup-id sh -c "sleep 1; feh --bg-fill /home/stephen/.config/i3/wallpapers/Rivendell.jpg"
+#exec --no-startup-id feh --bg-fill /home/stephen/.config/i3/wallpapers/Rivendell.jpg
+# Start picom 
+exec --no-startup-id picom -b
+exec --no-startup-id autotiling
+exec sudo ufw enable
+exec --no-startup-id "feh --bg-fill /home/stephen/.config/i3/wallpapers/Rivendell.jpg"
+#exec --no-startup-id redshift
+
+# Set the mod key to alt and the second mod key to meta
+set $mod Mod1
+set $mod2 Mod4
+set $terminal kitty
+
+# Define keybindings
+# Switch between windows
+bindsym $mod+h focus left
+bindsym $mod+l focus right
+bindsym $mod+j focus down
+bindsym $mod+k focus up
+bindsym $mod+n focus next
+
+# Move windows between left/right columns or move up/down in current stack.
+# Moving out of range in Columns layout will create new column.
+bindsym $mod+Control+h move left
+bindsym $mod+Control+l move right
+bindsym $mod+Control+j move down
+bindsym $mod+Control+k move up
+
+# Grow windows
+bindsym $mod2+Left resize shrink width 10 px or 10 ppt
+bindsym $mod2+Right resize grow width 10 px or 10 ppt
+bindsym $mod2+Down resize grow height 10 px or 10 ppt
+bindsym $mod2+Up resize shrink height 10 px or 10 ppt
+
+# Reset all window sizes
+bindsym $mod+r resize set 50 ppt
+
+# Toggle between split and unsplit sides of stack
+bindsym $mod+Shift+Return splith
+
+# Launch terminal
+bindsym $mod+Control+t exec $terminal
+
+# Toggle between different layouts
+bindsym $mod+Tab layout toggle split
+
+# Close the focused window
+bindsym $mod+Delete kill
+
+# Toggle fullscreen on the focused window
+bindsym $mod+f fullscreen toggle
+
+# Toggle floating on the focused window
+bindsym $mod+t floating toggle
+
+# Reload the configuration file
+bindsym $mod+Control+r reload
+
+# Exit i3 (logs you out of your X session)
+bindsym $mod+Control+q exit
+
+# Define workspaces
+set $ws1 "1"
+set $ws2 "2"
+set $ws3 "3"
+set $ws4 "4"
+set $ws5 "5"
+set $ws6 "6"
+set $ws7 "7"
+set $ws8 "8"
+set $ws9 "9"
+
+# Switch to workspaces
+bindsym $mod+$ws1 workspace number $ws1
+bindsym $mod+$ws2 workspace number $ws2
+bindsym $mod+$ws3 workspace number $ws3
+bindsym $mod+$ws4 workspace number $ws4
+bindsym $mod+$ws5 workspace number $ws5
+bindsym $mod+$ws6 workspace number $ws6
+bindsym $mod+$ws7 workspace number $ws7
+bindsym $mod+$ws8 workspace number $ws8
+bindsym $mod+$ws9 workspace number $ws9
+
+# Move focused container to workspace
+bindsym $mod+Shift+$ws1 move container to workspace number $ws1
+bindsym $mod+Shift+$ws2 move container to workspace number $ws2
+bindsym $mod+Shift+$ws3 move container to workspace number $ws3
+bindsym $mod+Shift+$ws4 move container to workspace number $ws4
+bindsym $mod+Shift+$ws5 move container to workspace number $ws5
+bindsym $mod+Shift+$ws6 move container to workspace number $ws6
+bindsym $mod+Shift+$ws7 move container to workspace number $ws7
+bindsym $mod+Shift+$ws8 move container to workspace number $ws8
+bindsym $mod+Shift+$ws9 move container to workspace number $ws9
+
+
+# Add gaps between windows
+gaps inner 10
+
+# Change focused window border color
+client.focused border #cbcbc8 #1d1d1d #232525 #232525
+# Start feh and set the wallpaper
