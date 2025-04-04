@@ -118,9 +118,9 @@ alias exitsesh="sudo systemctl restart sddm.service"
 alias r1="ollama run deepseek-r1:7b"
 alias llama="ollama run dolphin-llama3:8b"
 alias mixtral="ollama run dolphin-mixtral"
-# Example aliases
-# alias zshconfig="mate ~/.zshrc"
-# alias ohmyzsh="mate ~/.oh-my-zsh"
+alias ctdocx='zsh -c "pandoc \$1 -o \${1:r}.docx" --'
+alias ctpdf='zsh -c "libreoffice --headless --convert-to pdf \$1 --outdir ." --'
+
 source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 eval "$(_AUTO_CPUFREQ_COMPLETE=zsh_source auto-cpufreq)"
 
@@ -129,5 +129,3 @@ eval "$(_AUTO_CPUFREQ_COMPLETE=zsh_source auto-cpufreq)"
 #[[ -d $PYENV_ROOT/bin ]] && export PATH="$PYENV_ROOT/bin:$PATH"
 #eval "$(pyenv init -)"
 autoload bashcompinit
-bashcompinit
-source "/home/stephen/.local/share/bash-completion/completions/am"

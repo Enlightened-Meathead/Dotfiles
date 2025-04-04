@@ -50,7 +50,10 @@ M.general = {
     ["<leader>sy"] = {':set spell<CR>', "Set yes to spell checking"},
     -- Follow URL links and open images
     ["<leader><CR>"] = {'t)T(yt):call system("xdg-open " . shellescape(getreg("")))<CR>', "Open an image or URL with the system default application"},
-    --
+    -- Convert the current file to a docx
+    ["<leader>wvd"] = {':!pandoc "%" -o "~/Desktop/$(echo "%" | cut -d "." -f 1).docx" <CR>', 'Convert the current file to a docx'},
+    -- Convert the current file to pdf
+    ["<leader>wvp"] = {':!pandoc "%" -o "$(echo "%" | cut -d "." -f 1).docx" && libreoffice --headless --convert-to pdf "$(echo "%" | cut -d "." -f 1).docx" --outdir ~/Desktop/ && rm "$(echo "%" | cut -d "." -f 1).docx"<CR>', 'Convert the current file to a pdf'},
     -- switch between windows
     ["<C-h>"] = { "<C-w>h", "Window left" },
     ["<C-l>"] = { "<C-w>l", "Window right" },
@@ -94,6 +97,9 @@ M.general = {
 
   v = {
     -- Custom Mappings
+    -- Format visually selected lines into an unordered or ordered list
+    ["<leader>lu"] = {':normal I- <CR>', "Create an unordered list from the visually selected text"},
+    ["<leader>lo"] = {':s/^/\\=line(".")-line("\'<")+1 . ". "<CR>', "Create an ordered list from the visually selected text"},
     -- From a visual selection, create a new link
     ["<leader>wl"] = { "::ObsidianLinkNew", "Make an new note from a visually selected text to link from"},
     --
