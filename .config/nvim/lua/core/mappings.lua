@@ -54,7 +54,11 @@ M.general = {
     ["<leader>wvd"] = {':!pandoc "%" -o "~/Desktop/$(echo "%" | cut -d "." -f 1).docx" <CR>', 'Convert the current file to a docx'},
     -- Convert the current file to pdf
     ["<leader>wvp"] = {':!pandoc "%" -o "$(echo "%" | cut -d "." -f 1).docx" && libreoffice --headless --convert-to pdf "$(echo "%" | cut -d "." -f 1).docx" --outdir ~/Desktop/ && rm "$(echo "%" | cut -d "." -f 1).docx"<CR>', 'Convert the current file to a pdf'},
-    -- switch between windows
+    -- Switch the Lsp linter suggestions on and off
+    ["<leader>wgn"] = {":lua vim.diagnostic.config({virtual_text=false})<CR>", "Set no visual error suggestions"},
+    ["<leader>wgy"] = {":lua vim.diagnostic.config({virtual_text=true})<CR>", "Set no visual error suggestions"},
+    --
+    -- -- switch between windows
     ["<C-h>"] = { "<C-w>h", "Window left" },
     ["<C-l>"] = { "<C-w>l", "Window right" },
     ["<C-j>"] = { "<C-w>j", "Window down" },

@@ -120,6 +120,8 @@ alias llama="ollama run dolphin-llama3:8b"
 alias mixtral="ollama run dolphin-mixtral"
 alias ctdocx='zsh -c "pandoc \$1 -o \${1:r}.docx" --'
 alias ctpdf='zsh -c "libreoffice --headless --convert-to pdf \$1 --outdir ." --'
+alias mkhostnotes='bash -c "mkdir \"\$1\" && touch \"\$1/Attack Methodology.md\" \"\$1/Payload Log.md\" \"\$1/Host Findings.md\"" --'
+alias mkpentestdir='~/Scripts/mkpentestdir.sh'
 
 source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 eval "$(_AUTO_CPUFREQ_COMPLETE=zsh_source auto-cpufreq)"

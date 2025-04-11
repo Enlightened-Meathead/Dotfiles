@@ -4,8 +4,6 @@ require "nvchad.lsp"
 local M = {}
 local utils = require "core.utils"
 
--- export on_attach & capabilities for custom lspconfigs
-
 M.on_attach = function(client, bufnr)
   client.server_capabilities.documentFormattingProvider = false
   client.server_capabilities.documentRangeFormattingProvider = false
@@ -41,6 +39,7 @@ M.capabilities.textDocument.completion.completionItem = {
   },
 }
 
+-- Setup Lua LSP (works fine)
 require("lspconfig").lua_ls.setup {
   on_attach = M.on_attach,
   capabilities = M.capabilities,
@@ -64,4 +63,14 @@ require("lspconfig").lua_ls.setup {
   },
 }
 
+-- Register harperls after capabilities & on_attach are defined
+require("plugins.configs.harperls")
+
+local lspconfig = require("lspconfig")
+lspconfig.harperls.setup {
+  capabilities = M.capabilities,
+  on_attach = M.on_attach,
+}
+
 return M
+
